@@ -101,7 +101,7 @@
                         <a href="{{route('category.show', ['category' => $category, 'date'=> $date->format('d-m-Y')])}}"><h3 class="m-b-20">{{$category->title}}</h3></a>
                         <h4>Траты = {{$purchasesSum = $category->purchasesSum($purchases)}}</h4>
                         <h4 class="text-muted">Лимит = {{$category->limit}}</h4>
-                        <h5 class="m-t-30">{{$percent = $purchasesSum / $category->limit * 100}}%</h5>
+                        <h5 class="m-t-30">{{$percent = $category->limit != 0 ? round($purchasesSum / $category->limit * 100, 2) : 0}}%</h5>
                         <p class="text-muted"><span class="f-right">{{$percent}}%</span></p>
                         <div class="progress">
                             <div

@@ -25,7 +25,7 @@ class HomeController extends Controller
         $categories = Category::where('user_id', auth()->user()->id)->get();
         $purchases = Purchase::where('user_id', auth()->user()->id)->whereBetween('created_at',[$date, $date->copy()->endOfMonth()])->get();
 
-        $limit = $categories->sum('limit');
+        $limit = $categories->sum('limit') != 0 ? $categories->sum('limit') : 1;
         $purchases_sum = $purchases->sum('cost');
 
         return view('stats', compact('categories', 'purchases', 'date', 'limit', 'purchases_sum'));
@@ -35,6 +35,8 @@ class HomeController extends Controller
 
         $purchases = Purchase::where('user_id', auth()->user()->id)->with('category')->get()->sortByDesc('created_at');
 
-        return view('all', compact('purchases'));
+        $russianDataTable = config('russianDataTable');
+
+        return view('all', compact('purchases', 'russianDataTable'));
     }
 }

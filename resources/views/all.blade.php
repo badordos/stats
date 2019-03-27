@@ -15,7 +15,7 @@
         </div>
     @endif
 
-    <table id="all" class="table table-striped">
+    <table style="width: 100%" id="all" class="table table-sm table-striped">
         <thead class="thead-dark">
         <tr>
             <th scope="col">Название</th>
@@ -47,7 +47,12 @@
     <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.18/datatables.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
-            $('#all').DataTable();
+            $('#all').DataTable(
+                {
+                    "language": {!! json_encode($russianDataTable)!!},
+                    "sScrollX": '100%'
+                }
+            );
         });
     </script>
 @endsection

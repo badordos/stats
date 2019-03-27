@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-12">
 
                 @if (session('message'))
                     <div class="alert alert-warning" role="alert">
@@ -15,37 +15,24 @@
                 @endif
 
                 <div class="card">
-                    <div class="card-header">Добро пожаловать!</div>
+                    <div class="card-header text-center"><h3>Добро пожаловать!</h3></div>
 
                     <div class="card-body">
+                        <div class="row">
 
-                        <table class="table">
-                            <thead>
-                            <tr>
-                                <th scope="col">Действие</th>
-                                <th scope="col">Описание</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <th scope="row"><a class="btn btn-primary" href="{{route('category.create')}}">Создать категорию</a></th>
-                                <td><span class="m-l-5">Создайте категорию ваших покупок и установите лимит на нее.</span></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><a class="btn btn-success" href="{{route('purchase.create')}}">Создать покупку</a></th>
-                                <td><span class="m-l-5">Создайте покупку и прикрепите ее к определенной категории.</span></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><a class="btn btn-info" href="{{route('stats')}}">Статистика</a></th>
-                                <td><span class="m-l-5">Посмотрите статистику по каждой категории за выбранный месяц.</span></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"> <a class="btn btn-dark" href="{{route('all')}}">Посмотреть все траты</a></th>
-                                <td><span class="m-l-5">Список всех трат в виде таблицы</span></td>
-                            </tr>
-                            </tbody>
-                        </table>
+                            <div class="col-lg-6 col-sm-12 mt-3"><a class="btn btn-primary" href="{{route('category.create')}}">Создать категорию</a></div>
+                            <div class="col-lg-6 col-sm-12 mt-3"><span class="m-l-5 ">Создайте категорию ваших покупок и установите лимит на нее.</span></div>
 
+                            <div class="col-lg-6 col-sm-12 mt-3"><a class="btn btn-success" href="{{route('purchase.create')}}">Создать покупку</a></div>
+                            <div class="col-lg-6 col-sm-12 mt-3"><span class="m-l-5">Создайте покупку и прикрепите ее к определенной категории.</span></div>
+
+                            <div class="col-lg-6 col-sm-12 mt-3"><a class="btn btn-info" href="{{route('stats')}}">Статистика</a></div>
+                            <div class="col-lg-6 col-sm-12 mt-3"><span class="m-l-5">Посмотрите статистику по каждой категории за выбранный месяц.</span></div>
+
+                            <div class="col-lg-6 col-sm-12 mt-3"><a class="btn btn-dark" href="{{route('all')}}">Посмотреть все траты</a></div>
+                            <div class="col-lg-6 col-sm-12 mt-3"><span class="m-l-5">Список всех трат в виде таблицы</span></div>
+
+                        </div>
                     </div>
                 </div>
             </div>
