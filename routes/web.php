@@ -11,6 +11,8 @@ Route::group(['middleware'=> 'auth'], function () {
         Route::get('/create', 'CategoryController@create')->name('category.create');
         Route::post('/store', 'CategoryController@store')->name('category.store');
         Route::get('/show/{category}/{date}', 'CategoryController@show')->name('category.show');
+        Route::get('/edit/{category}', 'CategoryController@edit')->name('category.edit');
+        Route::post('/update', 'CategoryController@update')->name('category.update');
     });
 
     Route::group(['prefix' => 'purchase'], function (){

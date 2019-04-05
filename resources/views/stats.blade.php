@@ -68,7 +68,7 @@
                     <div class="row align-items-center">
                         <div class="col">
                             <p class="m-b-5">Процент</p>
-                            <h4 class="m-b-0">{{round($purchases_sum / $limit *100, -1)}}</h4>
+                            <h4 class="m-b-0">{{round($purchases_sum / $limit *100, 2)}}</h4>
                         </div>
                         <div class="col col-auto text-right">
                             <i class="fas fa-percent"></i>
@@ -97,11 +97,20 @@
         @foreach($categories as $category)
             <div class="col-12">
                 <div class="card quater-card">
+                    <div class="card-header">
+                        <a href="{{route('category.show', ['category' => $category, 'date'=> $date->format('d-m-Y')])}}">
+                            <h3 class="m-b-20 btn-link">{{$category->title}}</h3></a>
+                        <div class="card-header-right">
+                            <ul class="list-unstyled card-option">
+                                <li><a href="{{route('category.edit', $category)}}"><i class="fas fa-edit close-card"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
                     <div class="card-block">
-                        <a href="{{route('category.show', ['category' => $category, 'date'=> $date->format('d-m-Y')])}}"><h3 class="m-b-20">{{$category->title}}</h3></a>
                         <h4>Траты = {{$purchasesSum = $category->purchasesSum($purchases)}}</h4>
                         <h4 class="text-muted">Лимит = {{$category->limit}}</h4>
-                        <h5 class="m-t-30">{{$percent = $category->limit != 0 ? round($purchasesSum / $category->limit * 100, 2) : 0}}%</h5>
+                        <h5 class="m-t-30">{{$percent = $category->limit != 0 ? round($purchasesSum / $category->limit * 100, 2) : 0}}
+                            %</h5>
                         <p class="text-muted"><span class="f-right">{{$percent}}%</span></p>
                         <div class="progress">
                             <div

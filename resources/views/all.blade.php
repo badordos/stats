@@ -31,7 +31,7 @@
                 <th>{{$purchase->title}}</th>
                 <td>{{$purchase->cost}}</td>
                 <td>{{$purchase->category->title}}</td>
-                <td>{{$purchase->created_at->format('d.m.Y')}}</td>
+                <td>{{$purchase->created_at->format('Y.m.d')}}</td>
                 <td class="float-right">
                     <a href="{{route('purchase.edit', $purchase)}}" class="badge badge-light">Редактировать</a>
                     <a href="{{route('purchase.delete', $purchase)}}" class="badge badge-danger">Удалить</a>
@@ -50,7 +50,8 @@
             $('#all').DataTable(
                 {
                     "language": {!! json_encode($russianDataTable)!!},
-                    "sScrollX": '100%'
+                    "sScrollX": '100%',
+                    aaSorting: [[3, 'desc']]
                 }
             );
         });

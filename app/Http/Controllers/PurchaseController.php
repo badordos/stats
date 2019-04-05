@@ -40,6 +40,10 @@ class PurchaseController extends Controller
 
     public function edit(Purchase $purchase)
     {
+        if(auth()->user()->id != $purchase->user_id){
+            return redirect(route('home'))->with('message', 'Вы не можете редактировать сущность, которая вам не принадлежит');
+        }
+
         $categories = Category::where('user_id', auth()->user()->id)->get();
         return view('purchase.edit', compact('purchase','categories'));
     }
@@ -53,6 +57,11 @@ class PurchaseController extends Controller
         ]);
 
         $purchase = Purchase::find($request->purchase_id);
+
+        if(auth()->user()->id != $purchase->user_id){
+            return redirect(route('home'))->with('message', 'Вы не можете редактировать сущность, которая вам не принадлежит');
+        }
+
         if($purchase){
             $purchase->title = $request->title;
             $purchase->cost = $request->cost;
@@ -68,6 +77,10 @@ class PurchaseController extends Controller
 
     public function delete(Purchase $purchase)
     {
+        if(auth()->user()->id != $purchase->user_id){
+            return redirect(route('home'))->with('message', 'Вы не можете редактировать сущность, которая вам не принадлежит');
+        }
+
         $purchase->delete();
 
         return back()->with('message', 'Покупка успешно удалена.');
