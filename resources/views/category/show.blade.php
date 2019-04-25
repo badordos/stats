@@ -36,13 +36,6 @@
         <div class="card latest-update-card">
             <div class="card-header">
                 <h4>{{$category->title}}</h4>
-                <div class="card-header-right">
-                    <ul class="list-unstyled card-option">
-                        <li><i class="fa fa fa-wrench open-card-option"></i></li>
-                        <li><i class="fa fa-window-maximize full-card"></i></li>
-                        <li><i class="fa fa-trash close-card"></i></li>
-                    </ul>
-                </div>
             </div>
             <div class="card-block">
                 @foreach($purchases as $purchase)
