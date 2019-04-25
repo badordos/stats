@@ -69,7 +69,7 @@
                                 </div>
                             </div>
 
-                            <div class="form-group align-items-center">
+                            <div class="form-group ml-lg-5">
                                 {!! app('captcha')->display() !!}
                             </div>
 
